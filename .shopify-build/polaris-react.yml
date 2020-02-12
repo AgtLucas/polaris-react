@@ -21,8 +21,7 @@ shared:
       branch: add-polaris-build-pipeline
       commit: HEAD
       env:
-        BUILD_COMMIT: 'shopify-polaris-${BUILDKITE_COMMIT}.tgz'
-        POLARIS_BUILD_NUMBER: $BUILDKITE_BUILD_NUMBER
+        POLARIS_ARTIFACT_FILENAME: 'shopify-polaris-${BUILDKITE_COMMIT}.tgz'
 
 steps:
   - <<: *build-polaris
