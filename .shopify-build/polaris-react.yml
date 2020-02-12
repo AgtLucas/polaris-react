@@ -10,9 +10,7 @@ shared:
     dependencies:
       - yarn
     run:
-      - yarn run build
-      - yarn pack
-      - mv shopify-polaris-*.tgz "artifacts/shopify-polaris-${BUILDKITE_COMMIT}.tgz"
+      - ./.shopify-build/setup-consumer-test.sh
     artifact_paths:
       - path: 'artifacts'
         required: true

@@ -2,11 +2,9 @@
 shopt -s extglob
 set -e
 
-ls -l
-mkdir ../tmp/polaris-react
-mv !(node_modules) ../tmp/polaris-react
-mv ../tmp/polaris-react polaris-react
-git clone ssh://git@github.com/Shopify/$1 --depth 1
-ls -l
-yarn --cwd ./$1 remove @shopify/polaris
-yarn --cwd ./$1 add file:../polaris-react
+yarn run build
+yarn pack
+echo $GOOGLE_CLOUD_SERVICE_ACCOUNT > './gcpKey.json'
+export GOOGLE_APPLICATION_CREDENTIALS="$(pwd)gcpKey.json"
+pwd
+node ../scripts/upload-artifact.js
